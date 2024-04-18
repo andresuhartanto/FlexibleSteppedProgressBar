@@ -66,6 +66,7 @@ import CoreGraphics
     @objc open var lastStateOuterCircleStrokeColor: UIColor!
     @objc open var lastStateCenterColor: UIColor!
     @objc open var centerLayerTextColor: UIColor!
+    @objc open var centerLayerSelectedTextColor: UIColor = UIColor.white
     @objc open var centerLayerDarkBackgroundTextColor: UIColor = UIColor.white
     
     @objc open var useLastState: Bool = false {
@@ -464,6 +465,8 @@ import CoreGraphics
             
             if i == currentIndex || i == completedTillIndex {
                 textLayer.foregroundColor = centerLayerDarkBackgroundTextColor.cgColor
+            } else if i < currentIndex {
+                textLayer.foregroundColor = centerLayerSelectedTextColor.cgColor
             } else {
                 textLayer.foregroundColor = centerLayerTextColor?.cgColor
             }
